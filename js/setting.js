@@ -29,6 +29,7 @@ window.onload = function(){
 function load_setting()
 {
   { //デフォルト値確認設定
+    if(null == localStorage["EX-R"])   localStorage["EX-R"]   = 0;
     if(null == localStorage["EX-HR"])   localStorage["EX-HR"]   = 0;
     if(null == localStorage["EX-SR"])   localStorage["EX-SR"]   = 1;
     if(null == localStorage["EX-SSR"])  localStorage["EX-SSR"]  = 1;
@@ -37,6 +38,7 @@ function load_setting()
     if(null == localStorage["GRAD-R"])  localStorage["GRAD-R"]  = 0;
   }
 
+  document.getElementById("EX-R").checked    = Boolean(parseInt(localStorage["EX-R"]));
   document.getElementById("EX-HR").checked   = Boolean(parseInt(localStorage["EX-HR"]));
   document.getElementById("EX-SR").checked   = Boolean(parseInt(localStorage["EX-SR"]));
   document.getElementById("EX-SSR").checked  = Boolean(parseInt(localStorage["EX-SSR"]));
@@ -52,6 +54,7 @@ function load_setting()
   */
 function save_setting()
 {
+  localStorage["EX-R"]    = document.getElementById("EX-R").checked ? 1 : 0;
   localStorage["EX-HR"]   = document.getElementById("EX-HR").checked ? 1 : 0;
   localStorage["EX-SR"]   = document.getElementById("EX-SR").checked ? 1 : 0;
   localStorage["EX-SSR"]  = document.getElementById("EX-SSR").checked ? 1 : 0;
